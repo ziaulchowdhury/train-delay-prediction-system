@@ -5,7 +5,7 @@ import requests
 import json
 import datetime as dt
 
-trv_api_key = '____Replace_IT____'
+trv_api_key = 'adeac1acb7834c50a49f9710c3607625'
 
 def date_minus_now(num_days):
     ''' Subtracts num_days from current date '''
@@ -50,4 +50,5 @@ def get_train_announcement_trv(api_key=''):
         
 if __name__ == '__main__':
     train_announcements = get_train_announcement_trv(trv_api_key)
+    print(f'Announcement 1: {train_announcements[0]}')
     
