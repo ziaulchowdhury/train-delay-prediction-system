@@ -1,5 +1,14 @@
 Data Requirements - input data specification
-id10 Publically available historical location data from the Swedish Transport Administration through their API for train information.
-id20 Historical time table data and departure times. 
-id21 Historical arrival times. 
-Functional Requirements - 
+id11 Publically available historical location data from the Swedish Transport Administration through their API for train information.
+id21 Historical time table data and departure times. 
+id22 (possible next stage) Historical arrival times. 
+id23 Use data for SJ long-distance trains
+id24 (possible next stage) Use data for all operators' long-distance trains departing from the station 
+Functional Requirements
+id31 The system shall cluster stations according to timely departure from the station or if trains are typically more than 5 minutes late when leaving the station. 
+id32 (possible next stage) The system shall cluster stations according to timely departure from the station or if trains are typically 5-9 minutes, 10-15 minutes late when leaving the station. 
+Performance Requirements - Accuracy
+id41 The model shall achieve a minimum accuracy of [...] 
+Performance Requirements - Response time
+The system shall provide a classification within [specific time frame tbd] of receiving new data
+System Requirements
