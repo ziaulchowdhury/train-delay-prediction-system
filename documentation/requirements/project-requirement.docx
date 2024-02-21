@@ -11,4 +11,11 @@ Performance Requirements - Accuracy
 id41 The model shall achieve a minimum accuracy of [...] 
 Performance Requirements - Response time
 The system shall provide a classification within [specific time frame tbd] of receiving new data
-System Requirements
+System Requirements - Integration
+id51 (perhaps remove) The system shall be capable of integrating with existing train tracking and scheduling platforms.
+System Requirements - Scalability
+id55 The system shall be designed to scale with an increase in data volume (increasing the time period analyzed) and complexity (other departures and destinations)
+Compliance and Standards - Data Privacy
+id61 The system shall use only publically available data from trains, so there is no issue to comply with relevant data protection regulations.
+Compliance and Standards - Reporting
+id65 The system shall generate responses that can be easily interpreted by stakeholders.
