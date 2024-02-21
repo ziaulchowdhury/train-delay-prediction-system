@@ -1,0 +1,66 @@
+
+All features:
+---------------------------------------------------------------
+
+ActivityId
+ActivityType
+Advertised
+AdvertisedTimeAtLocation
+AdvertisedTrainIdent
+Canceled
+Deleted
+DepartureDateOTN
+Deviation
+EstimatedTimeIsPreliminary
+FromLocation
+InformationOwner
+LocationDateTimeOTN
+LocationSignature
+MobileWebLink
+ModifiedTime
+NewEquipment
+OperationalTrainNumber
+Operator
+OtherInformation
+PlannedEstimatedTimeAtLocationIsValid
+ProductInformation
+ScheduledDepartureDateTime
+TimeAtLocation
+TimeAtLocationWithSeconds
+ToLocation
+TrackAtLocation
+TrainOwner
+TypeOfTraffic
+ViaFromLocation
+---------------------------------------------------------------
+
+
+
+Final features for the model:
+---------------------------------------------------------------
+
+    
+
+ActivityType: Ankomst  (Arrival)
+
+AdvertisedTimeAtLocation: 2024-02-19T04:20:00.000+01:00
+    Convert to -->
+
+AdvertisedTrainIdent: 77
+
+Deviation: {ANA055: Spårändrat}
+    Track changed
+
+LocationSignature: Vå
+
+EstimatedTimeIsPreliminary: False
+
+FromLocation: {
+        {LocationName: Du, Order: 0, Priority: 1},
+        {LocationName: Uå, Order: 0, Priority: 2}
+        }
+
+
+---------------------------------------------------------------
+
+
