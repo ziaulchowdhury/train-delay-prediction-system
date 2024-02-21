@@ -50,5 +50,5 @@ def get_train_announcement_trv(api_key=''):
         
 if __name__ == '__main__':
     train_announcements = get_train_announcement_trv(trv_api_key)
-    print(f'Announcement 1: {train_announcements[0]}')
+    print(f'Announcement 1: {json.dumps(train_announcements[0], indent=2, ensure_ascii=False)}')
     
