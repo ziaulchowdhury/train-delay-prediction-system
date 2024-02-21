@@ -1,0 +1,5 @@
+Data Requirements - input data specification
+id10 Publically available historical location data from the Swedish Transport Administration through their API for train information.
+id20 Historical time table data and departure times. 
+id21 Historical arrival times. 
+Functional Requirements - 
