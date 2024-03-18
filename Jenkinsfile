@@ -17,5 +17,22 @@ pipeline {
                 print("checked out code .......")
             }
         }
+
+        stage('Setup') {
+            steps {
+                sh '''
+                    ${PYTHON} -m venv ${VENV_DIR}
+                    source ${VENV_DIR}/bin/activate
+                    pip install -r requirements.txt
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up steps
+            sh "deactivate"
+        }
     }
 }
