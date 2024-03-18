@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    // agent any
+    agent {
+        dockerfile { filename 'Dockerfile.build' }
+    }
 
     environment {
         // Define environment variables
