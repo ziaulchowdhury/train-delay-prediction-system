@@ -22,7 +22,7 @@ pipeline {
     post {
         always {
             // Clean up steps
-            sh "deactivate" // Deactivate virtual environment
+            // sh "deactivate" // Deactivate virtual environment
         }
     }
 }
