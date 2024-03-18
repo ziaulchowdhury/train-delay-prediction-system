@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -15,69 +14,7 @@ pipeline {
             steps {
                 // Checkout source code from your version control system (e.g., Git)
                 checkout scm
-            }
-        }
-
-        stage('Setup') {
-            steps {
-                // Install dependencies and set up virtual environment
-                sh '''
-                    ${PYTHON} -m venv ${VENV_DIR}
-                    source ${VENV_DIR}/bin/activate
-                    pip install -r requirements.txt
-                '''
-            }
-        }
-
-        stage('Linting and Code Quality Checks') {
-            steps {
-                // Run linters and code quality checks
-                sh "${PYTHON} -m pylint src/"
-                // Other code quality checks can be added here
-            }
-        }
-
-        stage('Unit Tests') {
-            steps {
-                // Run unit tests
-                sh "${PYTHON} -m pytest tests/"
-            }
-        }
-
-        stage('Data Validation') {
-            steps {
-                // Perform data validation steps
-                sh '''
-                    # Example: Check for missing values in the dataset
-                    ${PYTHON} src/data_validation.py ${DATA_DIR}/dataset.csv
-                '''
-            }
-        }
-
-        stage('Model Training') {
-            steps {
-                // Train the machine learning model
-                sh '''
-                    # Example: Train a model using a Python script
-                    ${PYTHON} src/train_model.py --input ${DATA_DIR}/dataset.csv --output ${MODEL_DIR}/model.pkl
-                '''
-            }
-        }
-
-        stage('Model Evaluation') {
-            steps {
-                // Evaluate the trained model
-                sh '''
-                    # Example: Evaluate model performance
-                    ${PYTHON} src/evaluate_model.py ${MODEL_DIR}/model.pkl
-                '''
-            }
-        }
-
-        stage('Deployment') {
-            steps {
-                // Deploy the model (if applicable)
-                // This stage can be adjusted based on your deployment process
+                print("checked out code .......")
             }
         }
     }
