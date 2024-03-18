@@ -1,7 +1,7 @@
 Data Requirements - input data specification
-id11 Publically available historical rail data from the Swedish Transport Administration. The data has been downloaded from a publically available API for railway information and transferred to a csv-file.  
+id11 Publically available historical rail data from the Swedish Transport Administration. The data has been downloaded from a publically available API for railway information and transferred to a csv-file with additional data added about which part of the railway network the data point concerns.   
 id21 Historical time table data, departure times and arrival times.  
-id23 Use data for all operators' long-distance trains
+id23 Use data for SJ's long-distance trains
 id24 (suggestion) The code shall prompt the user to name (choose from a list?) a departing station and an arrival station. 
 Functional Requirements
 id31 The system shall predict if a train between two specific stations will arrive on time (in the industry this means max 5 min after arrival time) or if it will be late. 
