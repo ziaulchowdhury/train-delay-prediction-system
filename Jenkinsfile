@@ -19,6 +19,11 @@ pipeline {
         }
 
         stage('Setup') {
+            agent {
+                docker {
+                    image 'python:3-alpine'
+                }
+            }
             steps {
                 sh '''
                     ${PYTHON} -m venv ${VENV_DIR}
