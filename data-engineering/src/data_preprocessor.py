@@ -6,6 +6,7 @@ class DataPreprocessor:
     
     def __init__(self, train_announcements):
         self.train_announcements = train_announcements
+        self.preprocess_data()
         
     
     def preprocess_data(self):
