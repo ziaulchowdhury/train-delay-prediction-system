@@ -22,7 +22,7 @@ class TrainDelayClassifier:
         self.dataset = self.data_processor.dataset
         print(self.dataset.columns)
         self.y = self.dataset['is_late_arrival']
-        self.X = self.dataset.drop('is_late_arrval', axis=1)
+        self.X = self.dataset.drop('is_late_arrival', axis=1)
     
     def perform_grid_search(self):
         random_forest_classifier = RandomForestClassifier(n_estimators=10)
