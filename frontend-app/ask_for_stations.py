@@ -24,7 +24,6 @@ print("You entered:", user_response)
 
 # Example model output
 model_output = "on time"  # This is a placeholder for the actual model prediction
-percentage = "48" #example percentage. 
 
 # Final output message
-print("When you travel by train from", numbered_stations[user_response-1][1],"to",numbered_stations[user_response-1][2],", this model predicts that you will arrive", model_output,"with",percentage,"% probability.")
+print("When you travel by train from", numbered_stations[user_response-1][1],"to",numbered_stations[user_response-1][2],", this model predicts that you will arrive", model_output,".")
