@@ -32,9 +32,6 @@ except ValueError:
 # Displaying user input
 print(f"You have chosen {numbered_stations[user_stations_nb-1][1]}-{numbered_stations[user_stations_nb-1][2]} on {user_date.date()}")
 
-# Ask for date and approximate time to travel
-# travel_date = datetime( #WIP
-
 # Code needs to be added here, calling the ML model. The result from the ML model is in the code below named "model_output". 
 # The program calls the model that predicts the time deviation at arrival of last stop. 
 
