@@ -7,7 +7,7 @@ Created on Tue Mar 26 10:29:33 2024
 """
 
 import pandas as pd
-from data_loader import DataLoader
+# from data_loader import DataLoader
 import json
 from sklearn import preprocessing
 from pickle import dump, load
@@ -85,7 +85,7 @@ class PredictionRequestPreprocessor:
         
         self.X.drop(columns=['advertised_time_at_location'], inplace=True)
     
-             
+'''          
 if __name__ == "__main__":
     
     trv_api_key = 'adeac1acb7834c50a49f9710c3607625'
@@ -94,3 +94,4 @@ if __name__ == "__main__":
     print(f'Announcement 1: {json.dumps(train_announcements[0], indent=2, ensure_ascii=False)}')
     
     data_processor = DataPreprocessor(train_announcements)
+'''
