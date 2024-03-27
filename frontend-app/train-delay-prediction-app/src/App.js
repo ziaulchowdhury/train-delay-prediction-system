@@ -3,7 +3,7 @@ import React, { Fragment }  from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 
 import Layout from './components/Layout/Layout';
-import About from './components/about/About';
+import About from './components/About/About';
 
 import './App.css';
 
