@@ -1,9 +1,6 @@
 pipeline {
-    // agent any
-    agent {
-        dockerfile { filename 'Dockerfile.build' }
-    }
-
+    agent any
+    
     environment {
         // Define environment variables
         PYTHON = 'python3'
@@ -22,11 +19,6 @@ pipeline {
         }
 
         stage('Setup') {
-            agent {
-                docker {
-                    image 'python:3-alpine'
-                }
-            }
             steps {
                 sh '''
                     ${PYTHON} -m venv ${VENV_DIR}
