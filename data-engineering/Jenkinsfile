@@ -29,7 +29,7 @@ pipeline {
 
         stage('Linting and Code Quality Checks') {
             steps {
-                sh "${PYTHON} pylint"
+                sh "${PYTHON} -m pylint --output-format=parseable --fail-under=10"
             }
         }
 
