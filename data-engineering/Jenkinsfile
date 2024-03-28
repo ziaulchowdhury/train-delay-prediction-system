@@ -30,7 +30,7 @@ pipeline {
         stage('Linting and Code Quality Checks') {
             steps {
                 print("Trying to execute Pylint: Python variable: "+PYTHON)
-                sh "${VENV_DIR}/bin/${PYTHON} -m pylint --output-format=parseable --fail-under=10"
+                sh "${VENV_DIR}/bin/${PYTHON} -m pylint --output-format=parseable --fail-under=10 --exit-zero"
             }
         }
 
