@@ -29,8 +29,7 @@ pipeline {
 
         stage('Linting and Code Quality Checks') {
             steps {
-                sh "${PYTHON} pylint src/"
-                // Other code quality checks can be added here
+                sh "${PYTHON} pylint"
             }
         }
 
