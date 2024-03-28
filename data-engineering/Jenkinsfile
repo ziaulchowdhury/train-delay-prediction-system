@@ -33,7 +33,7 @@ pipeline {
                 sh '''
                     pwd
                     ls -al
-                    ${VENV_DIR}/bin/${PYTHON} -m pylint --output-format=parseable --fail-under=10 --exit-zero 
+                    ${VENV_DIR}/bin/${PYTHON} -m pylint --output-format=parseable --fail-under=10 --exit-zero data-engineering/src/*
                 '''
                 // sh "${VENV_DIR}/bin/${PYTHON} -m pylint --output-format=parseable --fail-under=10 --exit-zero "
             }
