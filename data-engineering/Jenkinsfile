@@ -27,15 +27,14 @@ pipeline {
             }
         }
 
-        /*
         stage('Linting and Code Quality Checks') {
             steps {
-                // Run linters and code quality checks
-                sh "${PYTHON} -m pylint src/"
+                sh "${PYTHON} pylint src/"
                 // Other code quality checks can be added here
             }
         }
 
+        /*
         stage('Unit Tests') {
             steps {
                 // Run unit tests
