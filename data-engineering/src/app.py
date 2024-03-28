@@ -1,8 +1,9 @@
 from data_loader import DataLoader
 from data_preprocessor import DataPreprocessor
 from train_delay_classifier_model import TrainDelayClassifier
-from pickle import dump, load
+from pickle import dump
 import json
+import os
 
 def train_test_model(trv_api_key, num_days):
     print('Loading data ...')
@@ -24,6 +25,9 @@ def dump_model_weights(trainDelayClassifier):
     
 if __name__ == "__main__":
     trv_api_key = 'adeac1acb7834c50a49f9710c3607625'
+
+    download_data_num_days = os.environ['DOWNLOAD_DATA_NUM_DAYS']
+    print(f'DOWNLOAD_DATA_NUM_DAYS: {download_data_num_days}, Int value: {int(download_data_num_days)}')
     num_days = 2
     clf = train_test_model(trv_api_key, num_days)
     
