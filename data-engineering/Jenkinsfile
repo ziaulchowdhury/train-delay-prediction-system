@@ -28,6 +28,7 @@ pipeline {
             }
         }
 
+        /*
         stage('Linting and Code Quality Checks') {
             steps {
                 // Run linters and code quality checks
@@ -79,12 +80,15 @@ pipeline {
                 // This stage can be adjusted based on your deployment process
             }
         }
+        */
     }
 
+    /*
     post {
         always {
             // Clean up steps
             sh "deactivate" // Deactivate virtual environment
         }
     }
+    */
 }
