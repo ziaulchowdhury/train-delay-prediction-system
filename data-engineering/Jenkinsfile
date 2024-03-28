@@ -41,6 +41,14 @@ pipeline {
             }
         }
 
+        stage('Data Loading & Model Training') {
+            steps {
+                sh '''
+                    ${VENV_DIR}/bin/${PYTHON} src/app.py
+                '''
+            }
+        }
+
         /*
         stage('Data Validation') {
             steps {
