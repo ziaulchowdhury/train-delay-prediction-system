@@ -31,7 +31,7 @@ pipeline {
         stage('Linting and Code Quality Checks') {
             steps {
                 // Run linters and code quality checks
-                sh "${PYTHON} -m pylint data-engineering/src/"
+                sh "pylint data-engineering/src/"
             }
         }
     }
