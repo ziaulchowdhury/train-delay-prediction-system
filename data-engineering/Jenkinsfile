@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    // agent any
+    agent {
+        docker { image 'python:alpine3.19' }
+    }
 
     parameters {
         string(name: 'DOWNLOAD_DATA_NUM_DAYS', defaultValue: '2', description: 'Download data of past N number of days')
