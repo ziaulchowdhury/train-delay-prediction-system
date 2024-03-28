@@ -10,7 +10,7 @@ pipeline {
         VENV_DIR = 'venv'
         DOCKER_IMAGE_NAME = 'traain-delay-prediction-data-engineering'
         DOCKERFILE_PATH = './Dockerfile'
-        DOWNLOAD_DATA_NUM_DAYS='${params.DOWNLOAD_DATA_NUM_DAYS}'
+        DOWNLOAD_DATA_NUM_DAYS="${params.DOWNLOAD_DATA_NUM_DAYS}"
     }
 
     stages {
