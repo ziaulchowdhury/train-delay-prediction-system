@@ -2,7 +2,7 @@ import pandas as pd
 from data_loader import DataLoader
 import json
 from sklearn import preprocessing
-from pickle import dump, load
+from pickle import dump
 
 class DataPreprocessor:
     
