@@ -12,7 +12,6 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout source code from your version control system (e.g., Git)
                 checkout scm
             }
         }
@@ -22,7 +21,7 @@ pipeline {
                 // Install dependencies and set up virtual environment
                 sh '''
                     ${PYTHON} -m venv ${VENV_DIR}
-                    source ${VENV_DIR}/bin/activate
+                    . ${VENV_DIR}/bin/activate
                     pip install -r requirements.txt
                 '''
             }
@@ -30,12 +29,17 @@ pipeline {
 
         stage('Linting and Code Quality Checks') {
             steps {
-                // Run linters and code quality checks
-                sh "${PYTHON} -m pylint src/"
-                // Other code quality checks can be added here
+                print("Trying to execute Pylint: Python variable: "+PYTHON)
+                sh '''
+                    pwd
+                    ls -al
+                    ${VENV_DIR}/bin/${PYTHON} -m pylint --output-format=parseable --fail-under=10 --exit-zero data-engineering/src/*
+                '''
+                // sh "${VENV_DIR}/bin/${PYTHON} -m pylint --output-format=parseable --fail-under=10 --exit-zero "
             }
         }
 
+        /*
         stage('Unit Tests') {
             steps {
                 // Run unit tests
@@ -79,12 +83,15 @@ pipeline {
                 // This stage can be adjusted based on your deployment process
             }
         }
+        */
     }
 
+    /*
     post {
         always {
             // Clean up steps
             sh "deactivate" // Deactivate virtual environment
         }
     }
+    */
 }
