@@ -44,7 +44,7 @@ pipeline {
         stage('Data Loading & Model Training') {
             steps {
                 sh '''
-                    ${VENV_DIR}/bin/${PYTHON} src/app.py
+                    ${VENV_DIR}/bin/${PYTHON} data-engineering/src/app.py
                 '''
             }
         }
