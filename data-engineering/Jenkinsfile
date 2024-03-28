@@ -9,8 +9,10 @@ pipeline {
         // Define environment variables
         PYTHON = 'python3'
         VENV_DIR = 'venv'
-        DATA_DIR = 'data'
-        MODEL_DIR = 'models'
+        
+        DOCKER_IMAGE_NAME = "traain-delay-prediction-data-engineering"
+        DOCKERFILE_PATH = "./Dockerfile"
+
         DOWNLOAD_DATA_NUM_DAYS="${params.DOWNLOAD_DATA_NUM_DAYS}"
     }
 
@@ -54,52 +56,11 @@ pipeline {
             }
         }
 
-        /*
-        stage('Data Validation') {
+        stage('Build Docker Image') {
             steps {
-                // Perform data validation steps
-                sh '''
-                    # Example: Check for missing values in the dataset
-                    ${PYTHON} src/data_validation.py ${DATA_DIR}/dataset.csv
-                '''
+                script {
+                    docker.build(DOCKER_IMAGE_NAME, "-f ${DOCKERFILE_PATH} .")
+                }
             }
         }
-
-        stage('Model Training') {
-            steps {
-                // Train the machine learning model
-                sh '''
-                    # Example: Train a model using a Python script
-                    ${PYTHON} src/train_model.py --input ${DATA_DIR}/dataset.csv --output ${MODEL_DIR}/model.pkl
-                '''
-            }
-        }
-
-        stage('Model Evaluation') {
-            steps {
-                // Evaluate the trained model
-                sh '''
-                    # Example: Evaluate model performance
-                    ${PYTHON} src/evaluate_model.py ${MODEL_DIR}/model.pkl
-                '''
-            }
-        }
-
-        stage('Deployment') {
-            steps {
-                // Deploy the model (if applicable)
-                // This stage can be adjusted based on your deployment process
-            }
-        }
-        */
-    }
-
-    /*
-    post {
-        always {
-            // Clean up steps
-            sh "deactivate" // Deactivate virtual environment
-        }
-    }
-    */
 }
