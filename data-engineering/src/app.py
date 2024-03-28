@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     download_data_num_days = os.environ['DOWNLOAD_DATA_NUM_DAYS']
     print(f'DOWNLOAD_DATA_NUM_DAYS: {download_data_num_days}, Int value: {int(download_data_num_days)}')
-    num_days = 2
-    clf = train_test_model(trv_api_key, num_days)
+    # num_days = 2
+    clf = train_test_model(trv_api_key, int(download_data_num_days))
     
     dump_model_weights(clf)
