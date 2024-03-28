@@ -32,7 +32,7 @@ pipeline {
     post {
         always {
             // Clean up steps
-            sh "deactivate"
+            sh ". ${VENV_DIR}/bin/deactivate"
         }
     }
 }
