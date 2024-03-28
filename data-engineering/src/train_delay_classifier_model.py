@@ -1,9 +1,6 @@
-import pandas as pd
 import json
 from data_loader import DataLoader
 from data_preprocessor import DataPreprocessor
-from pickle import dump, load
-from sklearn import preprocessing
 from sklearn.model_selection import GridSearchCV, ShuffleSplit
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split

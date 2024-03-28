@@ -6,13 +6,11 @@ Created on Tue Mar 26 10:05:44 2024
 @author: chowdhuryz
 """
 
-from flask import Flask, request, json
 from prediction_request_preprocessor import PredictionRequestPreprocessor
 from train_delay_prediction_model import TrainDelayPredictor
-from pickle import load
 
-from flask_restful import Api, Resource
-from flask_swagger import swagger
+from flask import Flask, request, json
+from flask_restful import Api
 from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS, cross_origin
 
