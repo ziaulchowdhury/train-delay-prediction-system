@@ -27,12 +27,18 @@ pipeline {
                 '''
             }
         }
-    }
 
-    post {
-        always {
-            // Clean up steps
-            sh ". ${VENV_DIR}/bin/deactivate"
+        stage('Linting and Code Quality Checks') {
+            steps {
+                // Run linters and code quality checks
+                sh "${PYTHON} -m pylint data-engineering/src/"
+            }
         }
     }
+
+    /*post {
+        always {
+            sh ". ${VENV_DIR}/bin/deactivate"
+        }
+    }*/
 }
