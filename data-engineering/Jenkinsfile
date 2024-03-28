@@ -10,7 +10,7 @@ pipeline {
     }
 
     parameters {
-        string(name: 'DOWNLOAD_DATA_NUM_DAYS', defaultValue: 2, description: 'Download data of past N number of days')
+        string(name: 'DOWNLOAD_DATA_NUM_DAYS', defaultValue: '2', description: 'Download data of past N number of days')
     }
 
     stages {
