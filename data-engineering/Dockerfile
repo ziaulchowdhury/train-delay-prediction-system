@@ -4,7 +4,7 @@ FROM python:3.8.8-slim-buster
 WORKDIR /app
 
 # Copy source code to working directory
-COPY . app.py /app/
+COPY . /src/*.py /app/
 
 # Install packages from requirements.txt
 # hadolint ignore=DL3013
