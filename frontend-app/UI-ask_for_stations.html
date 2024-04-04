@@ -21,11 +21,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Search Page</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Train arrival predictor</title>
+     <style>
+        body {
+            background-color: palegreen;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <!-- Navigation links here -->
+            <body>
+                Find a departure at sj.se and write for your chosen departure "From", "To", "Date" and "Time" of departure. 
+                https://www.sj.se/en/kop-resa/sok/resa/fran-station/till-station/datum
+            </body>
         </nav>
     </header>
     <main>
@@ -34,6 +44,7 @@
                 <input type="text" name="from-station" placeholder="From Station">
                 <input type="text" name="to-station" placeholder="To Station">
                 <input type="date" name="date">
+                <input type="time" name="time">
                 <button type="submit">Search</button>
             </form>
         </section>
