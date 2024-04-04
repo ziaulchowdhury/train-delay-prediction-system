@@ -13,3 +13,35 @@
     <p>This tool lets you choose your stations of departure and arrival and the machine learning model will predict if your train will arrive on time (=max 5:59 min late) at the final station.</p>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Search Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation links here -->
+        </nav>
+    </header>
+    <main>
+        <section class="search-form">
+            <form action="/search-results" method="get">
+                <input type="text" name="from-station" placeholder="From Station">
+                <input type="text" name="to-station" placeholder="To Station">
+                <input type="date" name="date">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        <!-- Other page content here -->
+    </main>
+    <footer>
+        <!-- Footer content here -->
+    </footer>
+</body>
+</html>
+
