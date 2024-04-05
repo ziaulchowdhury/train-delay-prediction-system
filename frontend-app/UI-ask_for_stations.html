@@ -69,14 +69,19 @@
     </header>
     <main>
         <section class="search-form">
-            <form action="/search-results" method="get">
-                <input type="text" name="from-station" placeholder="From Station">
-                <input type="text" name="to-station" placeholder="To Station">
-                <input type="date" name="date">
-                <input type="time" name="time">
-                <button type="submit">Search</button>
-            </form>
-        </section>
+    <form action="/search-results" method="get">
+        <label for="station">From - To:</label>
+        <select name="station" id="station">
+            <!-- List only valid "from-to" combinations here -->
+            <option value="fromStation1-toStation2">Station 1 - Station 2</option>
+            <option value="fromStation1-toStation3">Station 1 - Station 3</option>
+            <!-- ... -->
+        </select>
+        <input type="date" name="date">
+        <input type="time" name="time">
+        <button type="submit">Search</button>
+    </form>
+</section>
         <!-- Other page content here -->
     </main>
     <footer>
