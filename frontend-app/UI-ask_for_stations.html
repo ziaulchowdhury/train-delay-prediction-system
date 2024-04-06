@@ -71,25 +71,28 @@
     </header>
     <main>
         <section class="search-form">
-    <form action="/search-results" method="get">
-        <label for="station">From - To:</label>
-        <select name="station" id="station">
-            <!-- List only valid "from-to" combinations here -->
-            <option value="fromStation1-toStation2">Stockholm Central-Göteborg</option>
-            <option value="fromStation2-toStation1">Göteborg-Stockholm Central</option>
-            <option value="fromStation1-toStation3">Stockholm Central-Malmö</option>
-            <option value="fromStation3-toStation1">Malmö-Stockholm Central</option>
-            <!-- ... -->
-        </select>
+<form action="/search-results" method="get">
+    <label for="station">From - To:</label>
+    <select name="station" id="station">
+        <!-- List only valid "from-to" combinations here -->
+        <option value="fromStation1-toStation2">Stockholm Central-Göteborg</option>
+        <option value="fromStation2-toStation1">Göteborg-Stockholm Central</option>
+        <option value="fromStation1-toStation3">Stockholm Central-Malmö</option>
+        <option value="fromStation3-toStation1">Malmö-Stockholm Central</option>
+        <!-- ... -->
+    </select>
+    <div class="input-center">
         <input type="date" name="date">
         <input type="time" name="time">
-        <button type="submit">Search</button>
-    </form>
+    </div>
+    <button type="submit">Search</button>
+</form>
+
 </section>
         <!-- Other page content here -->
     </main>
     <footer>
-        <p>On time is by Trafikverket's definition max  5 min 59 sek late.</p>
+        <p>On time is by Trafikverket's definition max 5 min 59 sek after planned arrival.</p>
         <!-- Footer content here -->
     </footer>
 </body>
