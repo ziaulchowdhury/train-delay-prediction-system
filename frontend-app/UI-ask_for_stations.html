@@ -68,6 +68,8 @@
 <form action="/search-results" method="get">
     <label for="station">Type of train and From - To:</label>
     <select name="station" id="station">
+        <!-- This option will be shown by default -->
+        <option value="" selected disabled>Please select your train route</option>
         <!-- List only valid "from-to" combinations here -->
         <option value="fromStation1-toStation2">SJ High-speed train: Stockholm Central-Göteborg</option>
         <option value="fromStation2-toStation1">SJ High-speed train: Göteborg-Stockholm Central</option>
