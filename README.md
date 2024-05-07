@@ -6,3 +6,8 @@ Project for Machine Learning Engineering Course: BTH
 
 ### Data Engineering Diagram
 ![plot](./documentation/data-engineering.png)
+
+### Train Delay Prediction Model Architecture Diagram
+![plot](./documentation/train-delay-prediction-architecture.png)
+
+
