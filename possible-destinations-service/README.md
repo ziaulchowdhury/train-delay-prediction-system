@@ -1,4 +1,4 @@
-# Train Delay Predictor Application
+# Train schedules Application
 
 This is a Flask-based web application that provides train schedules based on a given source station. The application runs inside a Docker container.
 
