@@ -1,7 +1,9 @@
 import sys
 sys.path.append("src")
 import json
+'''
 from data_loader import DataLoader
+'''
 import pytest
 
 def test_square():
