@@ -40,25 +40,25 @@ components:
       properties:
         train_id:
           type: string
-          example: 346
+          example: 874
         train_type:
           type: string
-          example: PNA045
+          example: PNA025
         operational_train_number:
           type: string
-          example: 10346
+          example: 874
         from_location:
           type: string
-          example: De.ges
+          example: Cst
         to_location:
           type: string
-          example: Cst
+          example: U
         operator:
           type: string
           example: SJ
         advertised_time:
           type: string
-          example: 2024-03-19T04:35:00.000+01:00
+          example: 2024-05-18T00:27:00.000+02:00
         
       # Both properties are required
       required:  
