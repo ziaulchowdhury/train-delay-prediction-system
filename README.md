@@ -10,4 +10,6 @@ Project for Machine Learning Engineering Course: BTH
 ### Train Delay Prediction Model Architecture Diagram
 ![plot](./documentation/figures/train-delay-prediction-architecture.png)
 
+### Run backend service
+$ env FLASK_APP=app.py python -m flask run
 
