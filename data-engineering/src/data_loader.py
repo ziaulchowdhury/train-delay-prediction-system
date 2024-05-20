@@ -16,6 +16,7 @@ class DataLoader:
     
         date_time_x_days = dt.datetime.now() + dt.timedelta(days=-self.num_days)
         date_days = str(date_time_x_days.date())
+        print(f'date_days: {date_days}')
         return date_days
     
     def get_train_announcement_trv(self):
@@ -59,6 +60,10 @@ if __name__ == '__main__':
     trv_api_key = 'adeac1acb7834c50a49f9710c3607625'
     data_loader = DataLoader(trv_api_key, 1)
     train_announcements = data_loader.get_train_announcement_trv()
-    
     print(f'Announcement 1: {json.dumps(train_announcements[0], indent=2, ensure_ascii=False)}')
+    
+    data_loader_2 = DataLoader(trv_api_key, 2)
+    train_announcements_2 = data_loader_2.get_train_announcement_trv()
+    print(f'Announcement 1: {json.dumps(train_announcements_2[0], indent=2, ensure_ascii=False)}')
+    
     
