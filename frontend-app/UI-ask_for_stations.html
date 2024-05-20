@@ -65,7 +65,7 @@
         trainListMap.set("trainRoute1", trainRoute1);
         
         let trainRoute2 = {
-            "advertised_time": "2024-05-18T00:27:00.000+02:00",
+            "advertised_time": "2024-05-21T00:27:00.000+02:00",
             "from_location": "U",
             "operational_train_number": "874",
             "operator": "SJ",
@@ -76,7 +76,7 @@
         trainListMap.set("trainRoute2", trainRoute2);
 
         let trainRoute3 = {
-            "advertised_time": "2024-05-18T00:27:00.000+02:00",
+            "advertised_time": "2024-05-21T00:27:00.000+02:00",
             "from_location": "G",
             "operational_train_number": "483",
             "operator": "SJ",
@@ -87,7 +87,7 @@
         trainListMap.set("trainRoute3", trainRoute3);
 
         let trainRoute4 = {
-            "advertised_time": "2024-05-18T00:27:00.000+02:00",
+            "advertised_time": "2024-05-21T00:27:00.000+02:00",
             "from_location": "M",
             "operational_train_number": "483",
             "operator": "SJ",
@@ -101,8 +101,15 @@
         $(document).ready(function(){
             
             $( "#predict-delay-btn" ).on( "submit", function( event ) {
-                let selectedRoute = $('#station').find(":selected").val()
-                requestJson = trainListMap.get(selectedRoute);
+                let selectedRoute = $('#station').find(":selected").val();
+                let requestDate = $('#request-date').val();
+                let requestTime = $('#request-time').val();
+                let requestDateTime = requestDate+'T'+requestTime+":00.000+02:00";
+                console.log("request DateTime: " + requestDateTime);
+
+                var requestJson = trainListMap.get(selectedRoute);
+                requestJson.advertised_time = requestDateTime;
+
                 console.log(requestJson);
                 $("#prediction-result").html("");
                 event.preventDefault();
@@ -158,8 +165,8 @@
                     -->
                 </select>
                 <div class="input-center">
-                    <input type="date" name="date">
-                    <input type="time" name="time">
+                    <input type="date" name="date" id="request-date">
+                    <input type="time" name="time" id="request-time">
                 </div>
                 <button id="predict-delay-btn" type="submit">Search</button>
             </form>
