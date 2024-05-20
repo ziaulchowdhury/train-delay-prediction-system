@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Train arrival predictor</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
         body {
             background-color: #F5F5F5; /* Light grey */
@@ -50,6 +50,76 @@
         font-size: 14px; /* Sets the font size to 16px */
     }
     </style>
+    <script>
+        const trainListMap = new Map();
+
+        let trainRoute1 = {
+            "advertised_time": "2024-05-18T00:27:00.000+02:00",
+            "from_location": "Cst",
+            "operational_train_number": "874",
+            "operator": "SJ",
+            "to_location": "U",
+            "train_id": "874",
+            "train_type": "PNA025"
+        };
+        trainListMap.set("trainRoute1", trainRoute1);
+        
+        let trainRoute2 = {
+            "advertised_time": "2024-05-18T00:27:00.000+02:00",
+            "from_location": "U",
+            "operational_train_number": "874",
+            "operator": "SJ",
+            "to_location": "Cst",
+            "train_id": "874",
+            "train_type": "PNA025"
+        };
+        trainListMap.set("trainRoute2", trainRoute2);
+
+        let trainRoute3 = {
+            "advertised_time": "2024-05-18T00:27:00.000+02:00",
+            "from_location": "G",
+            "operational_train_number": "483",
+            "operator": "SJ",
+            "to_location": "M",
+            "train_id": "483",
+            "train_type": "PNA026"
+        };
+        trainListMap.set("trainRoute3", trainRoute3);
+
+        let trainRoute4 = {
+            "advertised_time": "2024-05-18T00:27:00.000+02:00",
+            "from_location": "M",
+            "operational_train_number": "483",
+            "operator": "SJ",
+            "to_location": "G",
+            "train_id": "483",
+            "train_type": "PNA026"
+        };
+        trainListMap.set("trainRoute4", trainRoute4);
+
+    
+        $(document).ready(function(){
+            
+            $( "#predict-delay-btn" ).on( "submit", function( event ) {
+                let selectedRoute = $('#station').find(":selected").val()
+                requestJson = trainListMap.get(selectedRoute);
+                console.log(requestJson);
+                $("#prediction-result").html("");
+                event.preventDefault();
+                $.ajax({
+                    url:         "http://127.0.0.1:5000/v1/predict-train-delay",
+                    type:        "POST",
+                    data:        JSON.stringify(requestJson),
+                    contentType: "application/json; charset=utf-8",
+                    dataType:    "json",
+                    success: function(response, status){
+                        console.log("Delay:: " + response.delay + "\nStatus: " + status);
+                        $("#prediction-result").html("Delay: " +response.delay);
+                    },
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -64,38 +134,39 @@
                 Find your departure at <a href="https://www.sj.se/en/kop-resa/sok/resa/fran-station/till-station/datum" target="_blank">sj.se</a>
                 Write for your chosen departure "From-To", "Date" and "Time" of departure.
             </p>
-        
         </nav>
     </header>
     <main>
         <section class="search-form">
-<form action="/search-results" method="get">
-    <label for="station">Type of train and From - To:</label>
-    <select name="station" id="station">
-        <!-- This option will be shown by default -->
-        <option value="" selected disabled>Please select your train route</option>
-        <!-- List only valid "from-to" combinations here -->
-        <option value="fromStation1-toStation2">SJ High-speed train: Stockholm Central-Göteborg</option>
-        <option value="fromStation2-toStation1">SJ High-speed train: Göteborg-Stockholm Central</option>
-        <option value="fromStation1-toStation3">SJ High-speed train: Stockholm Central-Malmö</option>
-        <option value="fromStation3-toStation1">SJ High-speed train: Malmö-Stockholm Central</option>
-        <option value="fromStation1-toStation5">SJ High-speed train: Stockholm Central-Karlstad C</option>
-        <option value="fromStation5-toStation1">SJ High-speed train: Karlstad C-Stockholm Central</option>
-        <option value="fromStation1-toStation4">SJ InterCity: Stockholm Central-Duved Stn</option>
-        <option value="fromStation4-toStation1">SJ InterCity: Duved Stn-Stockholm Central</option>
-        <option value="fromStation1-toStation2">SJ Regional: Stockholm Central-Göteborg</option>
-        <option value="fromStation2-toStation1">SJ Regional: Göteborg-Stockholm Central</option>
-        
-        <!-- ... -->
-    </select>
-    <div class="input-center">
-        <input type="date" name="date">
-        <input type="time" name="time">
-    </div>
-    <button type="submit">Search</button>
-</form>
-</section>
-        <!-- Other page content here -->
+            <form id="predict-delay-btn">
+                <label for="station">Type of train and From - To:</label>
+                <select name="station" id="station">
+                    <!-- This option will be shown by default -->
+                    <option value="" selected disabled>Please select your train route</option>
+                    <!-- List only valid "from-to" combinations here -->
+                    <option value="trainRoute1">SJ High-speed train: Stockholm Central-Uppsala</option>
+                    <option value="trainRoute2">SJ High-speed train: Uppsala-Stockholm Central</option>
+                    <option value="trainRoute3">SJ High-speed train: Goteborg Central-Malmö</option>
+                    <option value="trainRoute4">SJ High-speed train: Malmö-Goteborg Central</option>
+                    <!--
+                    <option value="trainRoute5">SJ High-speed train: Stockholm Central-Karlstad C</option>
+                    <option value="trainRoute6">SJ High-speed train: Karlstad C-Stockholm Central</option>
+                    <option value="trainRoute7">SJ InterCity: Stockholm Central-Duved Stn</option>
+                    <option value="trainRoute8">SJ InterCity: Duved Stn-Stockholm Central</option>
+                    <option value="trainRoute9">SJ Regional: Stockholm Central-Göteborg</option>
+                    <option value="trainRoute10">SJ Regional: Göteborg-Stockholm Central</option>
+                    -->
+                </select>
+                <div class="input-center">
+                    <input type="date" name="date">
+                    <input type="time" name="time">
+                </div>
+                <button id="predict-delay-btn" type="submit">Search</button>
+            </form>
+            <div id="prediction-result">
+
+            </div>
+        </section>
     </main>
     <footer>
         <!-- Footer content here -->
