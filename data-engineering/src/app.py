@@ -21,14 +21,13 @@ def train_test_model(trv_api_key, num_days):
 
 def dump_model_weights(trainDelayClassifier):
     print('Dumping model weights to pkl file ...')
-    dump(trainDelayClassifier, open('train_delay_classifier_weights.pkl', 'wb'))
+    dump(trainDelayClassifier.random_forest_classifier, open('train_delay_classifier_weights.pkl', 'wb'))
     
 if __name__ == "__main__":
     trv_api_key = 'adeac1acb7834c50a49f9710c3607625'
 
     download_data_num_days = os.environ['DOWNLOAD_DATA_NUM_DAYS']
     print(f'DOWNLOAD_DATA_NUM_DAYS: {download_data_num_days}, Int value: {int(download_data_num_days)}')
-    # num_days = 2
+    # download_data_num_days = 2
     clf = train_test_model(trv_api_key, int(download_data_num_days))
-    
     dump_model_weights(clf)
