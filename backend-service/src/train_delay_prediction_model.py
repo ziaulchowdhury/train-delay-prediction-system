@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Mar 26 10:06:42 2024
-
 @author: chowdhuryz
 """
 
@@ -20,7 +19,6 @@ class TrainDelayPredictor:
     
     def predict_will_train_be_delayed(self, X):
         will_train_be_delayed = self.train_delay_clf.predict(X)
-        # print(f'Prediction: Train will {"be delayed!" if will_train_be_delayed else "not be delayed!")}')
         return will_train_be_delayed
     
 if __name__ == "__main__":

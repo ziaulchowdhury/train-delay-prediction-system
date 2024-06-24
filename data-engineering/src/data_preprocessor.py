@@ -92,7 +92,7 @@ class DataPreprocessor:
              
 if __name__ == "__main__":
     
-    trv_api_key = 'adeac1acb7834c50a49f9710c3607625'
+    trv_api_key = 'REPLACE_IT_WITH_YOUR_API_KEY'
     data_loader = DataLoader(trv_api_key, 1)
     train_announcements = data_loader.get_train_announcement_trv()
     print(f'Announcement 1: {json.dumps(train_announcements[0], indent=2, ensure_ascii=False)}')

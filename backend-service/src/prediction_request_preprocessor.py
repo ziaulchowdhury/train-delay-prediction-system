@@ -7,10 +7,7 @@ Created on Tue Mar 26 10:29:33 2024
 """
 
 import pandas as pd
-# from data_loader import DataLoader
-import json
-from sklearn import preprocessing
-from pickle import dump, load
+from pickle import load
 
 class PredictionRequestPreprocessor:
     
@@ -84,14 +81,4 @@ class PredictionRequestPreprocessor:
         self.X['advertised_quarter'] = self.X['advertised_time_at_location'].dt.quarter
         
         self.X.drop(columns=['advertised_time_at_location'], inplace=True)
-    
-'''          
-if __name__ == "__main__":
-    
-    trv_api_key = 'adeac1acb7834c50a49f9710c3607625'
-    data_loader = DataLoader(trv_api_key, 1)
-    train_announcements = data_loader.get_train_announcement_trv()
-    print(f'Announcement 1: {json.dumps(train_announcements[0], indent=2, ensure_ascii=False)}')
-    
-    data_processor = DataPreprocessor(train_announcements)
-'''
+

@@ -24,7 +24,7 @@ def dump_model_weights(trainDelayClassifier):
     dump(trainDelayClassifier.random_forest_classifier, open('train_delay_classifier_weights.pkl', 'wb'))
     
 if __name__ == "__main__":
-    trv_api_key = 'adeac1acb7834c50a49f9710c3607625'
+    trv_api_key = 'REPLACE_IT_WITH_YOUR_API_KEY'
 
     download_data_num_days = os.environ['DOWNLOAD_DATA_NUM_DAYS']
     print(f'DOWNLOAD_DATA_NUM_DAYS: {download_data_num_days}, Int value: {int(download_data_num_days)}')

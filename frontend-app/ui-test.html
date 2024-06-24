@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    let data = {
+        "advertised_time": "2024-05-18T00:27:00.000+02:00",
+        "from_location": "Cst",
+        "operational_train_number": "874",
+        "operator": "SJ",
+        "to_location": "U",
+        "train_id": "874",
+        "train_type": "PNA025"
+    };
+
+    $(document).ready(function(){
+        $("button").click(function(){
+            $.ajax({
+                url:         "http://127.0.0.1:5000/v1/predict-train-delay1",
+                type:        "POST",
+                data:        JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                dataType:    "json",
+                success: function(response, status){
+                    alert("Delay:: " + response.delay + "\nStatus: " + status);
+                },
+            });
+        });
+    });
+</script>
+</head>
+<body>
+
+<button>Predict train delay</button>
+
+</body>
+</html>
